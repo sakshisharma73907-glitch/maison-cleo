@@ -1,0 +1,10 @@
+node_modules
+dist
+server/uploads
+.env
+.env.local
+.DS_Store
+*.log
+*.err
+gh-auth*
+run-gh-auth.cmd

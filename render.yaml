@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: maison-cleo
+    runtime: node
+    rootDir: server
+    repo: https://github.com/${GITHUB_REPO}
+    plan: free
+    buildCommand: npm install && npm run build && npm run build:client
+    startCommand: node dist/index.js --seed
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_ORIGIN
+        value: https://maison-cleo.onrender.com
+      - key: MONGODB_IN_MEMORY
+        value: "true"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        value: admin@maisoncleo.com
+      - key: ADMIN_PASSWORD
+        value: MaisonCleo-2026!
+      - key: STRIPE_SECRET_KEY
+        value: ""
+      - key: STRIPE_WEBHOOK_SECRET
+        value: ""
