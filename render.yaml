@@ -3,7 +3,6 @@ services:
     name: maison-cleo
     runtime: node
     rootDir: server
-    repo: https://github.com/${GITHUB_REPO}
     plan: free
     buildCommand: npm install && npm run build && npm run build:client
     startCommand: node dist/index.js --seed
